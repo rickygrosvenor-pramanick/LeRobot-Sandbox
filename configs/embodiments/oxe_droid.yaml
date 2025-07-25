@@ -1,0 +1,34 @@
+# OXE-DROID Single Arm Robot Embodiment Configuration  
+# Configuration for single arm robots with end-effector control
+
+embodiment_tag: "oxe_droid"
+
+# State space definition
+state_keys:
+  arm_joints: 7      # Arm joint positions
+  gripper: 2         # Gripper joint positions
+  ee_position: 3     # End-effector position (x, y, z)
+  ee_orientation: 4  # End-effector orientation (quaternion)
+
+# Action space definition (delta end-effector control)
+action_keys:
+  ee_delta_position: 3     # Delta end-effector position
+  ee_delta_orientation: 3  # Delta end-effector orientation (axis-angle)
+  gripper: 1               # Gripper command
+
+# Camera configuration
+camera_names:
+  - "wrist_camera"      # Wrist-mounted camera
+  - "shoulder_camera"   # Shoulder-mounted camera
+
+# Robot-specific parameters
+robot_info:
+  total_dof: 8       # 7 arm + 1 gripper
+  control_frequency: 20  # Hz
+  action_space_type: "delta_ee"
+  
+# Data preprocessing
+preprocessing:
+  state_normalization: true
+  action_normalization: true
+  image_resize: [480, 640]  # Height, Width

@@ -1,0 +1,51 @@
+"""
+Requirements file for Isaac-GR00T fine-tuning framework.
+
+This file lists all Python dependencies required for the data conversion
+and fine-tuning utilities.
+"""
+
+# Core dependencies
+numpy>=1.21.0
+pandas>=1.3.0
+tqdm>=4.62.0
+pyyaml>=6.0
+pathlib>=1.0.1
+
+# Data processing
+h5py>=3.7.0
+pyarrow>=8.0.0  # For parquet files
+
+# Computer vision
+opencv-python>=4.5.0
+pillow>=8.3.0
+
+# ROS support (optional, for ROS bag conversion)
+# rosbag>=1.14.0  # Uncomment if using ROS
+# cv_bridge>=1.14.0  # Uncomment if using ROS
+# sensor_msgs>=1.12.0  # Uncomment if using ROS
+
+# Isaac-GR00T dependencies (install separately)
+# torch>=2.0.0
+# torchvision>=0.15.0
+# transformers>=4.21.0
+# accelerate>=0.20.0
+# flash-attn==2.7.1.post4
+
+# Validation and testing
+pytest>=6.2.0
+pytest-cov>=3.0.0
+
+# Development tools
+black>=22.0.0
+isort>=5.10.0
+flake8>=4.0.0
+mypy>=0.910
+
+# Documentation
+sphinx>=4.5.0
+sphinx-rtd-theme>=1.0.0
+
+# Jupyter for examples
+jupyter>=1.0.0
+ipywidgets>=7.6.0

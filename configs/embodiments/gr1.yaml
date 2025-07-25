@@ -1,0 +1,41 @@
+# GR1 Humanoid Robot Embodiment Configuration
+# Configuration for humanoid robots with dexterous hands
+
+embodiment_tag: "gr1"
+
+# State space definition
+state_keys:
+  left_arm: 7        # Left arm joint positions
+  left_hand: 6       # Left hand joint positions  
+  right_arm: 7       # Right arm joint positions
+  right_hand: 6      # Right hand joint positions
+  torso: 3           # Torso joint positions
+  head: 2            # Head joint positions
+  legs: 12           # Leg joint positions (6 per leg)
+
+# Action space definition (absolute joint space control)
+action_keys:
+  left_arm: 7        # Left arm joint commands
+  left_hand: 6       # Left hand joint commands
+  right_arm: 7       # Right arm joint commands  
+  right_hand: 6      # Right hand joint commands
+  torso: 3           # Torso joint commands
+  head: 2            # Head joint commands
+  legs: 12           # Leg joint commands
+
+# Camera configuration
+camera_names:
+  - "head_camera"    # Head-mounted camera
+  - "chest_camera"   # Chest-mounted camera
+
+# Robot-specific parameters
+robot_info:
+  total_dof: 43      # Total degrees of freedom
+  control_frequency: 50  # Hz
+  action_space_type: "absolute_joint"
+  
+# Data preprocessing
+preprocessing:
+  state_normalization: true
+  action_normalization: true
+  image_resize: [480, 640]  # Height, Width

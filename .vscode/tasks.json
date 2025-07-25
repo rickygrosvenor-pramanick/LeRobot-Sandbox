@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Setup Isaac-GR00T Environment",
+			"type": "shell",
+			"command": "echo 'Setting up Isaac-GR00T Fine-tuning Environment...' && echo 'To get started:' && echo '1. Install dependencies: pip install -r requirements.txt' && echo '2. Clone Isaac-GR00T: git clone https://github.com/NVIDIA/Isaac-GR00T' && echo '3. Install Isaac-GR00T: cd Isaac-GR00T && pip install -e .[base]' && echo '4. Convert your data: python examples/convert_data_example.py' && echo '5. Start fine-tuning: python examples/finetune_example.py' && echo 'Environment setup complete! 🚀'",
+			"group": "build"
+		}
+	]
+}

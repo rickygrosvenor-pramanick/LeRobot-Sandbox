@@ -1,0 +1,79 @@
+# Isaac-GR00T Fine-tuning Configuration
+# Base configuration for fine-tuning GR00T N1.5 model
+
+model:
+  model_path: "nvidia/GR00T-N1.5-3B"
+  embodiment_tag: "gr1"
+  device: "cuda"
+  dtype: "float16"
+  
+  # LoRA configuration
+  use_lora: false
+  lora_rank: 64
+  lora_alpha: 128
+  
+  # Model components to tune
+  tune_diffusion_model: true
+  tune_vision_encoder: false
+  tune_language_model: false
+
+data:
+  dataset_path: "./data/your_dataset"
+  validation_split: 0.1
+  
+  # Sequence configuration
+  sequence_length: 10
+  action_horizon: 4
+  delta_indices: [-1, 0, 1, 2, 3]
+  
+  # Data loading
+  batch_size: 8
+  num_workers: 4
+  shuffle: true
+  
+  # Data augmentation
+  use_augmentation: true
+  image_augmentation: {}
+
+training:
+  # Basic training settings
+  num_epochs: 50
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  gradient_accumulation_steps: 4
+  max_grad_norm: 1.0
+  
+  # Learning rate scheduling
+  use_scheduler: true
+  scheduler_type: "cosine"
+  warmup_steps: 1000
+  
+  # Optimization
+  optimizer: "adamw"
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_eps: 1.0e-8
+  
+  # Regularization
+  dropout_rate: 0.1
+  label_smoothing: 0.0
+  
+  # Checkpointing and logging
+  save_every_n_epochs: 5
+  eval_every_n_epochs: 1
+  log_every_n_steps: 100
+  
+  # Early stopping
+  use_early_stopping: true
+  patience: 10
+  min_delta: 1.0e-4
+
+# Experiment settings
+experiment_name: "gr00t_finetune_default"
+output_dir: "./outputs"
+seed: 42
+
+# Hardware settings
+num_gpus: 1
+mixed_precision: true
+compile_model: false
